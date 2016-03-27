@@ -9,7 +9,7 @@ usage
 
     socialProof(url, class_name)
 
-    #fetched sharecounts and writes it into the elements with the class "counter"
+    #fetches sharecounts and writes it into (all) the elements with the class "counter"
     socialProof('http://www.veganblatt.com/', 'counter')
 
 if url is null it uses the URL of the og:url element
