@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta property="og:url" content="http://www.facebook.com/" />
+  <link rel="canonical" href="http://www.google.com/">
+  <script> var _DEBUG_ = true;</script>
+  <script src="main.js"></script>
+</head>
+<body>
+  <p>ok, serious limitation, you can only call it for one URL per page, otherwise i would need to create dynamic callback, and I don't want to do that yet</p>
+  <h1>social proof no dependencies test</h1>
+  <p>also look into your console and source code<br>
+  var _DEBUG_ = true;<br>
+  enables some debug messages</p>
+
+  <h1>socialProof('http://www.veganblatt.com/', 'counter')</h1>
+  <script>socialProof('http://www.veganblatt.com/', 'counter');</script>
+  <h2 class="counter"></h2>
+  <h3 ><span class="counter"> </span> Shares</h3>
+  <h4 ><div class="counter"></div> mal geteilt</h4>
+  <br>
+  <h1>socialProof(null, 'counter2')<br>#uses meta property="og:url" as value (or canonical if no og:url)</h1>
+  <!--<script>socialProof(null, 'counter2');</script>-->
+  <h2 class="counter2"></h2>
+  <h3 ><span class="counter2"> </span> Shares</h3>
+  <h4 ><div class="counter2"></div> mal geteilt</h4>
+
+
+  <br>
+  <h1>socialProof("https://news.ycombinator.com/item?id=10134352", 'counter3')</h1>
+  <!--<script>socialProof('https://news.ycombinator.com/item?id=10134352', 'counter3');</script>-->
+  <h2 class="counter3"></h2>
+  <h3 ><span class="counter3"> </span> Shares</h3>
+  <h4 ><div class="counter3"></div> mal geteilt</h4>
+</body>
+</html>
