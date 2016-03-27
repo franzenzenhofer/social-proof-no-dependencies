@@ -1,5 +1,10 @@
 #a simple social proof javascript that checks fb, pinterest, linkedin without any external dependencies (like jquery)
 
+
+install
+
+  <script src="/social-proof-no-dependencies/main.js"></script>
+
 usage
 
     socialProof(url, class_name)
