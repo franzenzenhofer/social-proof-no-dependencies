@@ -3,7 +3,7 @@
 
 install
 
-  <script src="/social-proof-no-dependencies/main.js"></script>
+    <script src="/social-proof-no-dependencies/main.js"></script>
 
 usage
 
