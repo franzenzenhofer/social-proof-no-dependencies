@@ -42,10 +42,10 @@ window.socialProof = socialProof  = (url = (document.querySelectorAll('meta[prop
   #  return update(placeholder_class)
 
   update = (placeholder_class) ->
-    if placeholder_class
+    if placeholder_class and counter isnt 0
       elements = document.getElementsByClassName(placeholder_class)
       for elem in elements
-        elem.innerHTML = counter
+          elem.innerHTML = counter
     else
       console?.log(counter)
 

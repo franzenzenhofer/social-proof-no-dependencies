@@ -55,7 +55,7 @@
     counter = 0;
     update = function(placeholder_class) {
       var elem, elements, i, len, results;
-      if (placeholder_class) {
+      if (placeholder_class && counter !== 0) {
         elements = document.getElementsByClassName(placeholder_class);
         results = [];
         for (i = 0, len = elements.length; i < len; i++) {
