@@ -29,20 +29,21 @@
   };
 
   proof_urls = {
-    "facebook": "https://api.facebook.com/restserver.php?format=json&method=links.getStats&urls=",
+    "facebook": "http://graph.facebook.com/?id=",
     "pinterest": "http://widgets.pinterest.com/v1/urls/count.json?url=",
     "linkedin": "https://www.linkedin.com/countserv/count/share?url="
   };
 
   gone_get_them_all = function(data) {
-    var r, ref2, ref3, ref4, ref5, ref6, ref7;
+    var r, ref2, ref3, ref4, ref5, ref6, ref7, ref8, ref9;
+    d(data);
     r = 0;
     if (isInt(data)) {
       r = data;
     } else if (data === null || data === void 0) {
       r = 0;
     } else {
-      r = (ref2 = (ref3 = (ref4 = (ref5 = data != null ? data.total_count : void 0) != null ? ref5 : data != null ? data.count : void 0) != null ? ref4 : data != null ? (ref6 = data[0]) != null ? ref6.total_count : void 0 : void 0) != null ? ref3 : data != null ? (ref7 = data[0]) != null ? ref7.count : void 0 : void 0) != null ? ref2 : 0;
+      r = (ref2 = (ref3 = (ref4 = (ref5 = (ref6 = data != null ? data.total_count : void 0) != null ? ref6 : data != null ? data.count : void 0) != null ? ref5 : data != null ? (ref7 = data[0]) != null ? ref7.total_count : void 0 : void 0) != null ? ref4 : data != null ? (ref8 = data[0]) != null ? ref8.count : void 0 : void 0) != null ? ref3 : data != null ? (ref9 = data.share) != null ? ref9.share_count : void 0 : void 0) != null ? ref2 : 0;
     }
     return r;
   };

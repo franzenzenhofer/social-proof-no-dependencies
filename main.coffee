@@ -18,20 +18,22 @@ getJsonP = (url, callback) ->
 
 #all social proof URLs need the URL parameter to get the proof for at the end
 #note: alternate pinterest URL "https://api.pinterest.com/v1/urls/count.json?url="
+#  "facebook": "https://api.facebook.com/restserver.php?format=json&method=links.getStats&urls="
 
 proof_urls =
-  "facebook": "https://api.facebook.com/restserver.php?format=json&method=links.getStats&urls="
+  "facebook": "http://graph.facebook.com/?id="
   "pinterest": "http://widgets.pinterest.com/v1/urls/count.json?url="
   "linkedin": "https://www.linkedin.com/countserv/count/share?url="
 
 gone_get_them_all = (data) ->
+  d(data)
   r = 0
   if isInt(data)
     r = data
   else if data is null or data is undefined
     r = 0
   else
-    r = (data?.total_count ? data?.count ? data?[0]?.total_count ? data?[0]?.count ? 0)
+    r = (data?.total_count ? data?.count ? data?[0]?.total_count ? data?[0]?.count ? data?.share?.share_count ? 0)
   return r
 
 #if no url is given we use the og:url or if not available the window.top.url
