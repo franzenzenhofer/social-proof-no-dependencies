@@ -57,11 +57,16 @@ window.socialProof = socialProof  = (url = (document.querySelectorAll('meta[prop
     d('counter:'+counter)
     update(placeholder_class)
 
+  https_url = url.replace(/^http:\/\//i, 'https://');
+  http_url = url.replace(/^https:\/\//i, 'http://');
+
   d('URL:'+url)
-  url = encodeURIComponent(url)
+  https_url  = encodeURIComponent(https_url)
+  http_url  = encodeURIComponent(http_url)
   d('encoded URL:'+url)
   for n, u of proof_urls
-    getJsonP("#{u}#{url}", 'collect_and_update')
+    getJsonP("#{u}#{http_url}", 'collect_and_update')
+    getJsonP("#{u}#{https_url}", 'collect_and_update')
 
 #socialProof('http://www.veganblatt.com/', 'counter')
 #socialProof(null, 'counter')

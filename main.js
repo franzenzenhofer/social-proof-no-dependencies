@@ -49,7 +49,7 @@
   };
 
   window.socialProof = socialProof = function(url, placeholder_class) {
-    var collect_and_update, counter, n, ref2, ref3, ref4, ref5, ref6, ref7, results, u, update;
+    var collect_and_update, counter, http_url, https_url, n, ref2, ref3, ref4, ref5, ref6, ref7, results, u, update;
     if (url == null) {
       url = (ref2 = (ref3 = (ref4 = document.querySelectorAll('meta[property="og:url"]')) != null ? (ref5 = ref4[0]) != null ? ref5.content : void 0 : void 0) != null ? ref3 : (ref6 = document.querySelectorAll('link[rel=canonical]')) != null ? (ref7 = ref6[0]) != null ? ref7.href : void 0 : void 0) != null ? ref2 : window.top.location.href;
     }
@@ -74,13 +74,17 @@
       d('counter:' + counter);
       return update(placeholder_class);
     };
+    https_url = url.replace(/^http:\/\//i, 'https://');
+    http_url = url.replace(/^https:\/\//i, 'http://');
     d('URL:' + url);
-    url = encodeURIComponent(url);
+    https_url = encodeURIComponent(https_url);
+    http_url = encodeURIComponent(http_url);
     d('encoded URL:' + url);
     results = [];
     for (n in proof_urls) {
       u = proof_urls[n];
-      results.push(getJsonP("" + u + url, 'collect_and_update'));
+      getJsonP("" + u + http_url, 'collect_and_update');
+      results.push(getJsonP("" + u + https_url, 'collect_and_update'));
     }
     return results;
   };
