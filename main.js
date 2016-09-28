@@ -29,8 +29,8 @@
   };
 
   proof_urls = {
-    "facebook": "http://graph.facebook.com/?id=",
-    "pinterest": "http://widgets.pinterest.com/v1/urls/count.json?url=",
+    "facebook": "https://graph.facebook.com/?id=",
+    "pinterest": "https://widgets.pinterest.com/v1/urls/count.json?url=",
     "linkedin": "https://www.linkedin.com/countserv/count/share?url="
   };
 

@@ -21,8 +21,8 @@ getJsonP = (url, callback) ->
 #  "facebook": "https://api.facebook.com/restserver.php?format=json&method=links.getStats&urls="
 
 proof_urls =
-  "facebook": "http://graph.facebook.com/?id="
-  "pinterest": "http://widgets.pinterest.com/v1/urls/count.json?url="
+  "facebook": "https://graph.facebook.com/?id="
+  "pinterest": "https://widgets.pinterest.com/v1/urls/count.json?url="
   "linkedin": "https://www.linkedin.com/countserv/count/share?url="
 
 gone_get_them_all = (data) ->
