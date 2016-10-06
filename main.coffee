@@ -16,12 +16,20 @@ getJsonP = (url, callback) ->
     @remove()
     return
 
+getJsonPAfterEvent = (url, callback, event) ->
+  window.addEventListener(event, ((e)->
+      getJsonP(url, callback);
+      console.log(e)
+      ), {'once':true})
+
 #all social proof URLs need the URL parameter to get the proof for at the end
 #note: alternate pinterest URL "https://api.pinterest.com/v1/urls/count.json?url="
 #  "facebook": "https://api.facebook.com/restserver.php?format=json&method=links.getStats&urls="
 
 proof_urls =
   "facebook": "https://graph.facebook.com/?id="
+
+proof_urls_later =
   "pinterest": "https://widgets.pinterest.com/v1/urls/count.json?url="
   "linkedin": "https://www.linkedin.com/countserv/count/share?url="
 
@@ -67,6 +75,10 @@ window.socialProof = socialProof  = (url = (document.querySelectorAll('meta[prop
   for n, u of proof_urls
     getJsonP("#{u}#{http_url}", 'collect_and_update')
     getJsonP("#{u}#{https_url}", 'collect_and_update')
+
+  for n, u of proof_urls_later
+    getJsonPAfterEvent("#{u}#{http_url}", 'collect_and_update', 'scroll')
+    getJsonPAfterEvent("#{u}#{https_url}", 'collect_and_update', 'scroll')
 
 #socialProof('http://www.veganblatt.com/', 'counter')
 #socialProof(null, 'counter')
