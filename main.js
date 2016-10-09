@@ -29,9 +29,10 @@
   };
 
   getJsonPAfterEvent = function(url, callback, event) {
-    return window.addEventListener(event, (function(e) {
+    var fun;
+    return window.addEventListener(event, fun = (function(e) {
       getJsonP(url, callback);
-      return console.log(e);
+      return window.removeEventListener(event, fun);
     }), {
       'once': true
     });

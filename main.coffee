@@ -17,9 +17,9 @@ getJsonP = (url, callback) ->
     return
 
 getJsonPAfterEvent = (url, callback, event) ->
-  window.addEventListener(event, ((e)->
+  window.addEventListener(event, fun = ((e)->
       getJsonP(url, callback);
-      console.log(e)
+      window.removeEventListener(event,fun)
       ), {'once':true})
 
 #all social proof URLs need the URL parameter to get the proof for at the end
